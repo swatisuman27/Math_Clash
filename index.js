@@ -45,7 +45,7 @@ let updateBoard = () => {
 let gameOver = () => {
   console.log("game over");
   console.log(grid);
-  if (grid.length < rowSize) {
+  if (grid.length <= rowSize) {
     return false;
   }
   for (let i = 0; i < columnSize; i++) {
@@ -68,6 +68,7 @@ let startTimer = () => {
     setTimeout(() => {
       if (gameOver()) {
         alert("Game is over");
+        window.location.reload(false);
         clearInterval(id);
         startNewGame();
         return;
